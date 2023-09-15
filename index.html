@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Development: тестовое задание</title>
+</head>
+<body>
+    <div class="page">
+        <h1>Информация обо мне</h1>
+        <p>Меня зовут Стройкин Андрей Викторович, я студент ЮУрГУ. Учусь на направлении "Математика и компьютерные науки"
+        на 3 курсе. Занимаюсь профессиональным плаванием 14 лет и имею звание КМС.</p>
+        <img class="one" src="image/2 image.jpg" alt="Просто фото" title="Был хороший денек">
+        <img class="two" src="image/1 image.jpg" alt="Поездка в Магнитогорск" title="Это мы поехали в Магнитогорск на флеш моб">
+        <button class="button" onclick="MoreInfo()">Больше информации</button>
+        <p id="information" class="info">
+            Навыки:</br>
+            - Изучал языки: Python, C, C++;</br>
+            - Изучал HTML и CSS;</br>
+            - Знание основных алгоритмов и структур данных;</br>
+            - Проектирование и разработка программного обеспечения;</br>
+            - Умение работать в команде и общаться с коллегами;</br>
+            - Аналитическое мышление и умение решать сложные задачи;</br>
+            - Знание английского языка на уровне [A2].
+        </p>
+    </div>
+        
+    <script>
+        function MoreInfo() {
+        var info = document.getElementById("information");
+        if (info.classList.contains("info")) {
+        info.classList.remove("info");
+        } else {
+        info.classList.add("info");
+        }
+        }
+        document.querySelector('.one').onclick = function() {
+            this.style.opacity = 0
+        }
+        document.querySelector('.two').onclick = function() {
+            this.style.opacity = 0
+        }
+        document.querySelector('.one').addEventListener('transitionend', function(e) {
+            if(!e.propertyName == 'opacity') return
+            console.log(e.propertyName)
+            console.log(e.elapsedTime)
+            e.target.hidden = true
+        })
+        document.querySelector('.two').addEventListener('transitionend', function(e) {
+            if(!e.propertyName == 'opacity') return
+            console.log(e.propertyName)
+            console.log(e.elapsedTime)
+            e.target.hidden = true
+        })
+    </script>
+</body>
+</html>
